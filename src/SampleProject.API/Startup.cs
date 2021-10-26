@@ -81,16 +81,16 @@ namespace SampleProject.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseMiddleware<CorrelationMiddleware>();
-
+            app.UseDeveloperExceptionPage();
+            app.UseProblemDetails();
+/* 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
             }
             else
             {
-                app.UseProblemDetails();
             }
-
+ */
             app.UseRouting();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
